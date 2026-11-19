@@ -14,7 +14,7 @@ export default function Home() {
     <main>
       <Hero />
       <Work />
-      <blockquote className="quote">
+      <blockquote className="quote reveal" suppressHydrationWarning>
         “{before}
         <span className="quote-em">{QUOTE_EM}</span>
         {after}”

@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Outfit } from "next/font/google";
+import PageTransition from "@/components/PageTransition";
+import RevealOnScroll from "@/components/RevealOnScroll";
+import ScrollEffects from "@/components/ScrollEffects";
 import "./globals.css";
 
 // Fraunces has soft, organic "wonk" forms that suit a botanical feel.
@@ -54,8 +57,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable}`}>
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable}`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
+      <body>
+        {children}
+        <RevealOnScroll />
+        <ScrollEffects />
+        <PageTransition />
+      </body>
     </html>
   );
 }

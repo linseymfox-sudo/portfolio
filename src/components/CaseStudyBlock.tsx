@@ -1,5 +1,7 @@
 import type { Block, ListItem } from "@/data/case-studies";
+import { Fragment } from "react";
 import Carousel from "./Carousel";
+import CountUp from "./CountUp";
 import LaptopScroll from "./LaptopScroll";
 import ZoomImage from "./ZoomImage";
 
@@ -36,26 +38,44 @@ function Rich({ text }: { text: string }) {
 export default function CaseStudyBlock({ block }: { block: Block }) {
   switch (block.t) {
     case "statement":
-      return <h3 className="cs-statement">{block.text}</h3>;
+      return (
+        <h3 className="cs-statement reveal" suppressHydrationWarning>
+          {block.text.split(" ").map((w, i) => (
+            <Fragment key={i}>
+              <span className="w">
+                <span style={{ "--i": i } as React.CSSProperties}>{w}</span>
+              </span>{" "}
+            </Fragment>
+          ))}
+        </h3>
+      );
     case "h3":
-      return <h4 className="cs-h3">{block.text}</h4>;
+      return (
+        <h4 className="cs-h3 reveal" suppressHydrationWarning>
+          {block.text}
+        </h4>
+      );
     case "p":
       return (
-        <p className="cs-p">
+        <p className="cs-p reveal" suppressHydrationWarning>
           <Rich text={block.text} />
         </p>
       );
     case "leadp":
       return (
-        <p className="cs-p">
+        <p className="cs-p reveal" suppressHydrationWarning>
           <strong>{block.lead}</strong> {block.text}
         </p>
       );
     case "note":
-      return <p className="cs-note">{block.text}</p>;
+      return (
+        <p className="cs-note reveal" suppressHydrationWarning>
+          {block.text}
+        </p>
+      );
     case "list":
       return (
-        <ul className="cs-list">
+        <ul className="cs-list reveal" suppressHydrationWarning>
           {block.items.map((it, i) => (
             <li key={i}>
               <Item item={it} />
@@ -65,7 +85,7 @@ export default function CaseStudyBlock({ block }: { block: Block }) {
       );
     case "numbered":
       return (
-        <ol className="cs-numbered">
+        <ol className="cs-numbered reveal" suppressHydrationWarning>
           {block.items.map((it) => (
             <li key={it.n}>
               <span className="num">{it.n}</span>
@@ -79,10 +99,12 @@ export default function CaseStudyBlock({ block }: { block: Block }) {
       );
     case "stats":
       return (
-        <dl className="cs-stats">
+        <dl className="cs-stats reveal" suppressHydrationWarning>
           {block.items.map((s) => (
             <div key={s.label}>
-              <dt>{s.value}</dt>
+              <dt>
+                <CountUp value={s.value} />
+              </dt>
               <dd>{s.label}</dd>
             </div>
           ))}
@@ -90,7 +112,7 @@ export default function CaseStudyBlock({ block }: { block: Block }) {
       );
     case "callout":
       return (
-        <aside className="cs-callout">
+        <aside className="cs-callout reveal" suppressHydrationWarning>
           <span>{block.label}</span>
           <h4>{block.title}</h4>
           <p>{block.text}</p>
@@ -118,7 +140,8 @@ export default function CaseStudyBlock({ block }: { block: Block }) {
       const count = block.src?.length ?? block.count ?? 1;
       return (
         <figure
-          className={`cs-media n${Math.min(count, 3)}${block.narrow ? " narrow" : ""}`}
+          className={`cs-media reveal n${Math.min(count, 3)}${block.narrow ? " narrow" : ""}`}
+          suppressHydrationWarning
         >
           <div className="grid">
             {block.src
@@ -157,7 +180,7 @@ export default function CaseStudyBlock({ block }: { block: Block }) {
       );
     case "video":
       return (
-        <figure className="cs-embed">
+        <figure className="cs-embed reveal" suppressHydrationWarning>
           <div
             className="frame"
             style={{ "--r": block.ratio ?? 16 / 9 } as React.CSSProperties}
@@ -167,7 +190,6 @@ export default function CaseStudyBlock({ block }: { block: Block }) {
               title={block.caption}
               loading="lazy"
               allow="fullscreen; picture-in-picture"
-              allowFullScreen
             />
           </div>
           <figcaption>{block.caption}</figcaption>
@@ -175,7 +197,7 @@ export default function CaseStudyBlock({ block }: { block: Block }) {
       );
     case "figma":
       return (
-        <figure className="cs-embed">
+        <figure className="cs-embed reveal" suppressHydrationWarning>
           <div className="frame figma">
             <iframe
               src={block.src}

@@ -6,10 +6,11 @@ import {
   type Shape,
 } from "@/data/botanicals";
 
-const PLANTS: Record<"poppy" | "mimosa", { shapes: Shape[]; viewBox: string }> = {
-  poppy: { shapes: POPPY, viewBox: POPPY_VIEWBOX },
-  mimosa: { shapes: MIMOSA, viewBox: MIMOSA_VIEWBOX },
-};
+const PLANTS: Record<"poppy" | "mimosa", { shapes: Shape[]; viewBox: string }> =
+  {
+    poppy: { shapes: POPPY, viewBox: POPPY_VIEWBOX },
+    mimosa: { shapes: MIMOSA, viewBox: MIMOSA_VIEWBOX },
+  };
 
 // Botanical line drawing that draws itself in.
 // - Shapes marked `fill` are painted with the page background so nearer
@@ -42,7 +43,10 @@ export default function Botanical({
           d={s.d}
           pathLength={1}
           strokeWidth={s.w}
-          className={[s.fill ? "f" : "", s.c ?? ""].filter(Boolean).join(" ") || undefined}
+          className={
+            [s.fill ? "f" : "", s.c ?? ""].filter(Boolean).join(" ") ||
+            undefined
+          }
           style={{ "--d": `${s.delay}s` } as React.CSSProperties}
         />
       ))}

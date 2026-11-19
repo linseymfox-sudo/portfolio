@@ -10,8 +10,13 @@ export default function Work() {
         <span className="eyebrow">Case studies · 2014 — 2026</span>
       </div>
       <ul className="cards">
-        {projects.map((p) => (
-          <li key={p.slug}>
+        {projects.map((p, i) => (
+          <li
+            key={p.slug}
+            className="reveal"
+            suppressHydrationWarning
+            style={{ "--rd": `${(i % 3) * 0.12}s` } as React.CSSProperties}
+          >
             <ProjectCard p={p} />
           </li>
         ))}

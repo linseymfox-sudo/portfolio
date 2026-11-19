@@ -100,7 +100,7 @@ async function CaseStudy({ params }: { params: Promise<{ slug: string }> }) {
         <Botanical plant="mimosa" className="sprig" />
       </div>
 
-      <figure className="cs-hero">
+      <figure className="cs-hero" data-parallax="36" suppressHydrationWarning>
         {cs.hero ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={cs.hero} alt={cs.heroCaption} />
@@ -115,7 +115,12 @@ async function CaseStudy({ params }: { params: Promise<{ slug: string }> }) {
       <JumpNav sections={cs.sections} />
 
       {cs.sections.map((s, n) => (
-        <section key={s.id} id={s.id} className="cs-section">
+        <section
+          key={s.id}
+          id={s.id}
+          className="cs-section reveal-line"
+          suppressHydrationWarning
+        >
           <p className="cs-eyebrow">
             {String(n + 1).padStart(2, "0")} — {s.heading}
           </p>

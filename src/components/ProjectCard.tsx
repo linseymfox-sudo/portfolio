@@ -28,6 +28,20 @@ export default function ProjectCard({ p }: { p: Project }) {
     }
   };
 
+  // Cards tilt a few degrees toward the cursor (mouse and trackpad only)
+  const onTilt = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse") return;
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    e.currentTarget.style.setProperty("--rx", `${(-y * 9).toFixed(2)}deg`);
+    e.currentTarget.style.setProperty("--ry", `${(x * 11).toFixed(2)}deg`);
+  };
+  const onTiltEnd = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.currentTarget.style.setProperty("--rx", "0deg");
+    e.currentTarget.style.setProperty("--ry", "0deg");
+  };
+
   return (
     <Link
       ref={ref}
@@ -35,7 +49,13 @@ export default function ProjectCard({ p }: { p: Project }) {
       className={revealed ? "revealed" : undefined}
       onClick={onClick}
     >
-      <div className="thumb">
+      <div
+        className="thumb"
+        data-parallax="14"
+        suppressHydrationWarning
+        onPointerMove={onTilt}
+        onPointerLeave={onTiltEnd}
+      >
         {/* eslint-disable @next/next/no-img-element */}
         <img className="base" src={p.image} alt="" loading="eager" />
         {p.hoverImage && <img className="alt" src={p.hoverImage} alt="" />}

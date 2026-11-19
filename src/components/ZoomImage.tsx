@@ -30,7 +30,11 @@ export default function ZoomImage({ src, alt }: { src: string; alt: string }) {
           if (e.target === dialog.current) dialog.current?.close();
         }}
       >
-        <button type="button" className="zoom-close" onClick={() => dialog.current?.close()}>
+        <button
+          type="button"
+          className="zoom-close"
+          onClick={() => dialog.current?.close()}
+        >
           Close ✕
         </button>
         <div className="zoom-scroll">

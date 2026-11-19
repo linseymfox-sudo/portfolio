@@ -49,7 +49,8 @@ export default function Carousel({
 
   return (
     <figure
-      className={scroll ? "cs-carousel scroll" : "cs-carousel"}
+      className={scroll ? "cs-carousel scroll reveal" : "cs-carousel reveal"}
+      suppressHydrationWarning
       role="group"
       aria-roledescription="carousel"
       aria-label={caption}

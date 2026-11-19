@@ -19,11 +19,21 @@ export default function LaptopScroll({
   const dialog = useRef<HTMLDialogElement>(null);
 
   return (
-    <figure className="laptop-scroll">
+    <figure className="laptop-scroll reveal" suppressHydrationWarning>
       <div className="laptop">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="frame" src="/work/snowflake-pricing-calculator/macbook-frame.webp" alt="" loading="lazy" />
-        <div className="screen" tabIndex={0} role="region" aria-label={`${caption}: scrollable screenshot`}>
+        <img
+          className="frame"
+          src="/work/snowflake-pricing-calculator/macbook-frame.webp"
+          alt=""
+          loading="lazy"
+        />
+        <div
+          className="screen"
+          tabIndex={0}
+          role="region"
+          aria-label={`${caption}: scrollable screenshot`}
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={src} alt={alt} loading="lazy" />
         </div>
@@ -31,9 +41,16 @@ export default function LaptopScroll({
       <div className="bar">
         <figcaption>
           {caption}
-          <span className="hint"> · scroll inside the screen to see the whole page</span>
+          <span className="hint">
+            {" "}
+            · scroll inside the screen to see the whole page
+          </span>
         </figcaption>
-        <button type="button" className="enlarge" onClick={() => dialog.current?.showModal()}>
+        <button
+          type="button"
+          className="enlarge"
+          onClick={() => dialog.current?.showModal()}
+        >
           Click to enlarge
         </button>
       </div>
@@ -45,7 +62,11 @@ export default function LaptopScroll({
           if (e.target === dialog.current) dialog.current?.close();
         }}
       >
-        <button type="button" className="zoom-close" onClick={() => dialog.current?.close()}>
+        <button
+          type="button"
+          className="zoom-close"
+          onClick={() => dialog.current?.close()}
+        >
           Close ✕
         </button>
         <div className="zoom-scroll fit">

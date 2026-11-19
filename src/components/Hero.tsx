@@ -11,7 +11,38 @@ export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const nameRef = useRef<HTMLHeadingElement>(null);
 
+  // A trail of tiny leaves and petals that drift down from the cursor
+  const trail = useRef<HTMLDivElement>(null);
+  const last = useRef({ x: 0, y: 0, t: 0 });
+  const shed = (e: React.PointerEvent) => {
+    const box = trail.current;
+    const hero = ref.current;
+    if (!box || !hero || e.pointerType !== "mouse") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const now = performance.now();
+    const moved = Math.hypot(
+      e.clientX - last.current.x,
+      e.clientY - last.current.y,
+    );
+    if (moved < 34 || now - last.current.t < 40 || box.childElementCount > 34)
+      return;
+    last.current = { x: e.clientX, y: e.clientY, t: now };
+    const r = hero.getBoundingClientRect();
+    const bit = document.createElement("span");
+    bit.className = Math.random() < 0.35 ? "trail-bit petal" : "trail-bit leaf";
+    bit.style.left = `${e.clientX - r.left}px`;
+    bit.style.top = `${e.clientY - r.top}px`;
+    bit.style.setProperty("--dx", `${(Math.random() - 0.5) * 80}px`);
+    bit.style.setProperty("--dy", `${50 + Math.random() * 70}px`);
+    bit.style.setProperty("--r0", `${Math.random() * 360}deg`);
+    bit.style.setProperty("--r1", `${(Math.random() - 0.5) * 600}deg`);
+    bit.style.setProperty("--s", `${0.75 + Math.random() * 0.8}`);
+    bit.addEventListener("animationend", () => bit.remove(), { once: true });
+    box.appendChild(bit);
+  };
+
   const onMove = (e: React.PointerEvent) => {
+    shed(e);
     const hero = ref.current;
     const name = nameRef.current;
     if (!hero || !name) return;
@@ -51,6 +82,7 @@ export default function Hero() {
 
       {/* decorative botanical line drawing, drawn in on load */}
       <Botanical plant="poppy" className="sprig" />
+      <div ref={trail} className="trail" aria-hidden="true" />
     </header>
   );
 }
