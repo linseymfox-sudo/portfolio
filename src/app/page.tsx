@@ -3,16 +3,21 @@ import SiteFooter from "@/components/SiteFooter";
 import Work from "@/components/Work";
 import { profile } from "@/data/projects";
 
+// Only this phrase of the quote is set in the accent color.
+const QUOTE_EM = "most critical piece";
+
 export default function Home() {
-  // The second sentence of the quote is set in the accent color.
-  const [first, ...others] = profile.quote.split(/(?<=\.)\s+/);
-  const rest = others.join(" ");
+  const at = profile.quote.indexOf(QUOTE_EM);
+  const before = profile.quote.slice(0, at);
+  const after = profile.quote.slice(at + QUOTE_EM.length);
   return (
     <main>
       <Hero />
       <Work />
       <blockquote className="quote">
-        “{first} <span className="quote-em">{rest}</span>”
+        “{before}
+        <span className="quote-em">{QUOTE_EM}</span>
+        {after}”
       </blockquote>
       <SiteFooter />
     </main>

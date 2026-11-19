@@ -23,7 +23,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const cs = getCaseStudy(slug);
-  return cs ? { title: `${cs.title} — Linsey Fox`, description: cs.dek } : {};
+  if (!cs) return {};
+  const title = `${cs.title} — Linsey Fox`;
+  const image = `/og/${cs.slug}.jpg`;
+  return {
+    title,
+    description: cs.dek,
+    alternates: { canonical: `/p/${cs.slug}` },
+    openGraph: {
+      type: "article",
+      siteName: "Linsey Fox",
+      url: `/p/${cs.slug}`,
+      title,
+      description: cs.dek,
+      images: [{ url: image, width: 1200, height: 630, alt: cs.heroCaption }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: cs.dek,
+      images: [image],
+    },
+  };
 }
 
 // The route params are read inside a Suspense boundary, as this version of

@@ -58,15 +58,15 @@ main { padding: 0 clamp(20px, 4vw, 56px); max-width: 1500px; margin: 0 auto; }
 
 .hero-row {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: clamp(24px, 5vw, 80px);
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
   align-items: end;
   margin-top: clamp(20px, 3vw, 36px);
 }
 .name {
   font-family: var(--font-display), serif;
   font-weight: 700;
-  font-size: clamp(48px, 8vw, 120px);
+  font-size: clamp(52px, 10.5vw, 168px);
   line-height: 1;
   letter-spacing: -0.02em;
   color: transparent;
@@ -97,7 +97,7 @@ main { padding: 0 clamp(20px, 4vw, 56px); max-width: 1500px; margin: 0 auto; }
   pointer-events: none;
 }
 .role {
-  margin-top: 14px;
+  margin-top: clamp(14px, 2.4vw, 34px); /* clears the descender of the large name */
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -106,12 +106,12 @@ main { padding: 0 clamp(20px, 4vw, 56px); max-width: 1500px; margin: 0 auto; }
 }
 .about {
   /* leave a gutter on the right for the poppy */
-  max-width: min(460px, calc(100% - 235px));
+  max-width: min(560px, calc(100% - 235px));
   animation: rise 0.9s 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 .about p {
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.55;
   color: #e3e8dc;
   margin-bottom: 10px;
 }
@@ -128,18 +128,18 @@ main { padding: 0 clamp(20px, 4vw, 56px); max-width: 1500px; margin: 0 auto; }
   z-index: -1;
   height: min(calc(100% - 54px), 340px); /* fits the hero so the whole plant shows */
   width: auto;
-  opacity: 0.6;
+  opacity: 0.9;
   pointer-events: none;
 }
 @media (max-width: 800px) {
-  .sprig { opacity: 0.2; height: 200px; top: 54px; right: 0; }
+  .sprig { opacity: 0.4; height: 200px; top: 54px; right: 0; }
   .about { max-width: none; }
 }
 
 /* Shared drawing styles. Every path uses pathLength=1, so one dash length
    draws them all; each shape sets its own stagger via --d. */
 .botanical {
-  stroke: var(--leaf);
+  stroke: #94d0a1; /* a touch brighter than --leaf so the lines read on the deep teal */
   stroke-linecap: round;
   stroke-linejoin: round;
   overflow: visible;
@@ -152,8 +152,8 @@ main { padding: 0 clamp(20px, 4vw, 56px); max-width: 1500px; margin: 0 auto; }
 .botanical .f { fill: var(--bg); }
 /* bloom-colored strokes: a warm blossom for the poppy, soft blush for the
    mimosa. Change these two values to retint the flowers. */
-.botanical.poppy { --bloom: #f0a98a; }
-.botanical.mimosa { --bloom: #eab0bb; }
+.botanical.poppy { --bloom: #f5b398; }
+.botanical.mimosa { --bloom: #f0b9c4; }
 .botanical .a { stroke: var(--bloom); }
 /* optional plate caption, like a vintage botanical print */
 .botanical .cap {
@@ -734,9 +734,9 @@ main { padding: 0 clamp(20px, 4vw, 56px); max-width: 1500px; margin: 0 auto; }
 /* Case study pages: the mimosa sprig, tucked in the top-right of the header */
 .cs-top { position: relative; }
 .cs-top .page-top, .cs-top .cs-head { position: relative; z-index: 1; }
-.cs-top .sprig { opacity: 0.5; right: 0; }
+.cs-top .sprig { opacity: 0.85; right: 0; }
 @media (max-width: 1100px) {
-  .cs-top .sprig { opacity: 0.18; height: 260px; }
+  .cs-top .sprig { opacity: 0.35; height: 260px; }
 }
 
 /* Wide screens: an editorial two-column layout. The section label sits in a
@@ -766,4 +766,24 @@ main { padding: 0 clamp(20px, 4vw, 56px); max-width: 1500px; margin: 0 auto; }
     line-height: 1.6;
   }
   .cs-section > .cs-body { min-width: 0; }
+}
+
+/* Homepage cards: three across, then two centered below, so each card is
+   about 70% larger than in a single row of five. */
+.work .cards { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 36px); row-gap: clamp(32px, 3.6vw, 52px); }
+.work .cards li { grid-column: span 2; }
+.work .cards li:nth-child(4) { grid-column: 2 / span 2; }
+.work .cards li:nth-child(5) { grid-column: 4 / span 2; }
+.work .cards .thumb { border-radius: 18px; transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.4s ease; }
+.work .cards .co { margin-top: 16px; font-size: 13px; }
+.work .cards .ti { margin-top: 6px; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.3; }
+@media (hover: hover) {
+  .work .cards a:hover .thumb { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(0, 0, 0, 0.35); }
+}
+@media (max-width: 900px) {
+  .work .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .work .cards li, .work .cards li:nth-child(4), .work .cards li:nth-child(5) { grid-column: auto; }
+}
+@media (max-width: 560px) {
+  .work .cards { grid-template-columns: 1fr; }
 }

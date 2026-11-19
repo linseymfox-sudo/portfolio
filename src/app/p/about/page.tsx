@@ -4,9 +4,35 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteNav from "@/components/SiteNav";
 import { projects, profile } from "@/data/projects";
 
+const ABOUT_TITLE = "About — Linsey Fox";
+// The first sentence of the bio makes a better search snippet than the heading.
+const ABOUT_DESCRIPTION = profile.about.paragraphs[0].split(". ")[0].replace(/\.$/, "") + ".";
+
 export const metadata: Metadata = {
-  title: "About — Linsey Fox",
-  description: profile.about.heading,
+  title: ABOUT_TITLE,
+  description: ABOUT_DESCRIPTION,
+  alternates: { canonical: "/p/about" },
+  openGraph: {
+    type: "profile",
+    siteName: "Linsey Fox",
+    url: "/p/about",
+    title: ABOUT_TITLE,
+    description: ABOUT_DESCRIPTION,
+    images: [
+      {
+        url: "/og/home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Linsey Fox, Senior Product Designer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: ABOUT_TITLE,
+    description: ABOUT_DESCRIPTION,
+    images: ["/og/home.jpg"],
+  },
 };
 
 export default function AboutPage() {
