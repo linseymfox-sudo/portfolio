@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Urbanist } from "next/font/google";
+import { Fraunces, Outfit } from "next/font/google";
 import "./globals.css";
 
 // Fraunces has soft, organic "wonk" forms that suit a botanical feel.
@@ -8,7 +8,7 @@ const display = Fraunces({
   axes: ["SOFT", "opsz"],
   variable: "--font-display",
 });
-const sans = Urbanist({ subsets: ["latin"], variable: "--font-sans" });
+const sans = Outfit({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Linsey Fox – Senior Product Designer",
