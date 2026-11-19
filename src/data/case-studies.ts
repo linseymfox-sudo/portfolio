@@ -368,164 +368,8 @@ export const caseStudies: CaseStudy[] = [
 
   // ------------------------------------------------------------------ III
   {
-    slug: "developers-hub",
-    plate: "Pl. III",
-    company: "Snowflake",
-    kicker: "Snowflake · Developer experience",
-    title: "Redesigning the developer experience on Snowflake.com",
-    dek: "How I redesigned and elevated the developer experience on Snowflake’s marketing website.",
-    meta: [
-      { label: "Role", value: "Sole UX designer & researcher" },
-      { label: "Team", value: "UI / visual designer, project manager, developer relations stakeholders" },
-      { label: "Outcome", value: "94% increase in page views per month" },
-    ],
-    hero: "/work/developers-hub/hero.jpg",
-    heroCaption: "Redesigned Snowflake for Developers page, shown on a laptop and a phone",
-    sections: [
-      {
-        id: "problem",
-        nav: "Problem & goals",
-        heading: "Problem & goals",
-        blocks: [
-          { t: "statement", text: "Developer content lived on a different domain, with outdated and sparse information" },
-          { t: "p", text: "Snowflake wants its users to know that developers are very important to their success. The website experience for developers wasn’t showing that importance." },
-          { t: "p", text: "Developer content was housed on a different domain than Snowflake’s main website, the content was dated, and the design felt stale. To emphasize the importance of the developer community, Snowflake needed to make developers more prominent in the navigation and site domain, along with a fresh new experience to keep learning and discovering." },
-          { t: "h3", text: "Problem" },
-          { t: "p", text: "Developers are an important audience for Snowflake.com, but they weren’t being treated as such by the current web experience. Content was hard to find and disparate from the main Snowflake website, and making connections between content on different domains was a disconnect for the overall user experience." },
-          { t: "h3", text: "Hypothesis" },
-          { t: "p", text: "By migrating the developers website to the main Snowflake website, along with adding Developers to the global navigation, users will be more likely to discover, use and share content found within the updated developers site." },
-          { t: "h3", text: "Design goals" },
-          { t: "p", text: "In addition to the internal team goal of migrating the developers content to Snowflake.com, I had other improvements in mind:" },
-          { t: "list", items: [
-            "Through research, determine if adding “Developers” to the global navigation is a positive user experience for all site visitors",
-            "Reduce the number of disparate links and one-off content types on the current developers home page",
-            "Refine the design for a more modern, clean and clear experience for an audience with high expectations",
-          ] },
-          { t: "h3", text: "Key performance indicators" },
-          { t: "list", items: ["Increase traffic to developer solutions", "Increase time on site and page views per session", "Reduce website bounce rate"] },
-          { t: "h3", text: "My role" },
-          { t: "p", text: "I served as the sole UX designer and researcher, overseeing the project from discovery, to concepts, to usability testing. The team included a UI / visual designer for polishing the final designs, a project manager, and the stakeholder team of developer relations managers." },
-        ],
-      },
-      {
-        id: "discovery",
-        nav: "Discovery",
-        heading: "Discovery",
-        blocks: [
-          { t: "h3", text: "Current experience audit" },
-          { t: "p", text: "Developer content lived on a different domain and had its own navigation, look and feel." },
-          {
-            t: "media",
-            caption: "Current developers site",
-            carousel: true,
-            scroll: true,
-            src: [
-              "/work/developers-hub/current-1-solution-page.webp",
-              "/work/developers-hub/current-2-developers-home.webp",
-              "/work/developers-hub/current-3-solutions-center.webp",
-            ],
-            alts: [
-              "Full-page screenshot of a page on the current Snowflake developers site: the solution “Social graph of prominent tech figures using GraphRAG on RelationalAI”, with an overview, an architecture diagram and a row of hands-on resources",
-              "Full-page screenshot of the current “Snowflake for Developers” home page, with a get-started section, a searchable and filterable resource list, and a next steps section",
-              "Full-page screenshot of the current “Snowflake Solutions Center” page, with filters on the left and a grid of solution cards",
-            ],
-          },
-          { t: "h3", text: "Opportunities identified in discovery" },
-          { t: "list", items: ["Update the look and feel", "Make developer content easy to find", "Consolidate links and redesign how the information is displayed"] },
-          { t: "h3", text: "Competitive analysis" },
-          { t: "statement", text: "Developer sites have robust content for a technical audience" },
-          { t: "p", text: "I looked at developer experiences for SaaS companies in a similar category to Snowflake. I found examples of what the technical developer audience needs and expects — for example, a left-hand side menu like GitHub. This discovery work helped determine the best way to display the content for this user type." },
-          {
-            t: "media",
-            caption: "Competitor developer experiences",
-            carousel: true,
-            scroll: true,
-            src: [
-              "/work/developers-hub/competitor-1-confluent.webp",
-              "/work/developers-hub/competitor-2-docker-hub.webp",
-              "/work/developers-hub/competitor-3-hex.webp",
-            ],
-            alts: [
-              "Full-page screenshot of Confluent’s “Streaming Use Case Architectures” page, with search and filter menus above a grid of use case cards",
-              "Full-page screenshot of Docker Hub’s home page, with a category menu on the left and rows of featured and popular container images",
-              "Full-page screenshot of Hex’s Snowpark templates page, with a category list on the left, a featured template and a grid of template cards",
-            ],
-          },
-        ],
-      },
-      {
-        id: "ideation",
-        nav: "Ideation",
-        heading: "Ideation",
-        blocks: [
-          { t: "statement", text: "Reusable templates designed to scale" },
-          {
-            t: "media",
-            caption: "Wireframe templates",
-            carousel: true,
-            scroll: true,
-            src: [
-              "/work/developers-hub/template-1-individual-solution.webp",
-              "/work/developers-hub/template-2-solutions-center.webp",
-              "/work/developers-hub/template-3-solutions-category.webp",
-            ],
-            alts: [
-              "Full-page wireframe of the individual solution template: a headline, summary and a media area at the top, a sidebar with dates and features used, an overview, a highlights box, three titled sections and a resources and docs list",
-              "Full-page wireframe of the Solutions Center template: a page title, three featured solution cards, a filter sidebar and a grid of solution cards with pagination, followed by a continue learning section",
-              "Full-page wireframe of a solution category template: a page title, a back link to all solutions, a topic filter and a grid of five solution cards, followed by a continue learning section",
-            ],
-          },
-        ],
-      },
-      {
-        id: "testing",
-        nav: "Usability testing",
-        heading: "Usability testing & user research",
-        blocks: [
-          { t: "h3", text: "Adding Developers to the navigation" },
-          {
-            t: "media",
-            caption: "Developers added to Snowflake.com’s global navigation",
-            src: ["/work/developers-hub/navigation-developers-menu.jpg"],
-            alts: [
-              "Snowflake.com with the new Developers menu open in the global navigation, showing three columns: Build (Developers overview, Solutions center, Downloads), Learn (Documentation, Quickstarts, Open source, Hands-on labs, Builder education) and Connect (Engineering blog, Community), plus featured resources on the right",
-            ],
-          },
-          { t: "p", text: "User testing was performed with developers to determine their sentiment about adding “Developers” to the global header navigation. Testing probed on:" },
-          { t: "list", items: [
-            "What do developers expect to find in the navigation drop-down?",
-            "Are the labels intuitive?",
-            "Is anything missing from the menu?",
-            "What does this say to you about Snowflake as a company?",
-          ] },
-          { t: "p", text: "This research validated our assumption that the menu update is viewed positively by this audience — and signals to all users that Snowflake is developer-focused." },
-        ],
-      },
-      {
-        id: "prototype",
-        nav: "Final prototype",
-        heading: "Final design prototype",
-        blocks: [{ t: "figma", src: FIGMA_DEV_HUB, caption: "Final design prototype" }],
-      },
-      {
-        id: "results",
-        nav: "Results",
-        heading: "Results",
-        blocks: [
-          { t: "stats", items: [
-            { value: "94%", label: "Increase in page views per month" },
-            { value: "11.3%", label: "Decrease in bounce rate" },
-            { value: "5", label: "New templates designed for scale" },
-          ] },
-        ],
-      },
-    ],
-  },
-
-  // ------------------------------------------------------------------ IV
-  {
     slug: "self-service-renewal",
-    plate: "Pl. IV",
+    plate: "Pl. III",
     company: "Docusign",
     kicker: "Docusign · Self-service renewal",
     title: "Creating a self-service subscription renewal experience in the Docusign app",
@@ -722,6 +566,162 @@ export const caseStudies: CaseStudy[] = [
           { t: "p", text: "The design goals I had for this project weren’t realistic once I discovered back-end system constraints would limit functionality." },
           { t: "p", text: "I had to trade off the goal of letting the user make multiple changes at once for allowing just one change per renewal period. This was a disappointment, but it further emphasized the need to fix the issue — which was addressed in the next phase. To solve for this lack of system flexibility, I created clear messaging and UI treatment so the admin understands the actions they’re able to take, and how to undo them." },
           { t: "p", text: "Next time, I’ll ask more questions of the project sponsor at kickoff — in particular, whether the full range of stakeholders and teams are aware of the scope. If the back-end engineering team had been included earlier, I could have designed the flow knowing how system limitations impacted the user experience." },
+        ],
+      },
+    ],
+  },
+
+  // ------------------------------------------------------------------ IV
+  {
+    slug: "developers-hub",
+    plate: "Pl. IV",
+    company: "Snowflake",
+    kicker: "Snowflake · Developer experience",
+    title: "Redesigning the developer experience on Snowflake.com",
+    dek: "How I redesigned and elevated the developer experience on Snowflake’s marketing website.",
+    meta: [
+      { label: "Role", value: "Sole UX designer & researcher" },
+      { label: "Team", value: "UI / visual designer, project manager, developer relations stakeholders" },
+      { label: "Outcome", value: "94% increase in page views per month" },
+    ],
+    hero: "/work/developers-hub/hero.jpg",
+    heroCaption: "Redesigned Snowflake for Developers page, shown on a laptop and a phone",
+    sections: [
+      {
+        id: "problem",
+        nav: "Problem & goals",
+        heading: "Problem & goals",
+        blocks: [
+          { t: "statement", text: "Developer content lived on a different domain, with outdated and sparse information" },
+          { t: "p", text: "Snowflake wants its users to know that developers are very important to their success. The website experience for developers wasn’t showing that importance." },
+          { t: "p", text: "Developer content was housed on a different domain than Snowflake’s main website, the content was dated, and the design felt stale. To emphasize the importance of the developer community, Snowflake needed to make developers more prominent in the navigation and site domain, along with a fresh new experience to keep learning and discovering." },
+          { t: "h3", text: "Problem" },
+          { t: "p", text: "Developers are an important audience for Snowflake.com, but they weren’t being treated as such by the current web experience. Content was hard to find and disparate from the main Snowflake website, and making connections between content on different domains was a disconnect for the overall user experience." },
+          { t: "h3", text: "Hypothesis" },
+          { t: "p", text: "By migrating the developers website to the main Snowflake website, along with adding Developers to the global navigation, users will be more likely to discover, use and share content found within the updated developers site." },
+          { t: "h3", text: "Design goals" },
+          { t: "p", text: "In addition to the internal team goal of migrating the developers content to Snowflake.com, I had other improvements in mind:" },
+          { t: "list", items: [
+            "Through research, determine if adding “Developers” to the global navigation is a positive user experience for all site visitors",
+            "Reduce the number of disparate links and one-off content types on the current developers home page",
+            "Refine the design for a more modern, clean and clear experience for an audience with high expectations",
+          ] },
+          { t: "h3", text: "Key performance indicators" },
+          { t: "list", items: ["Increase traffic to developer solutions", "Increase time on site and page views per session", "Reduce website bounce rate"] },
+          { t: "h3", text: "My role" },
+          { t: "p", text: "I served as the sole UX designer and researcher, overseeing the project from discovery, to concepts, to usability testing. The team included a UI / visual designer for polishing the final designs, a project manager, and the stakeholder team of developer relations managers." },
+        ],
+      },
+      {
+        id: "discovery",
+        nav: "Discovery",
+        heading: "Discovery",
+        blocks: [
+          { t: "h3", text: "Current experience audit" },
+          { t: "p", text: "Developer content lived on a different domain and had its own navigation, look and feel." },
+          {
+            t: "media",
+            caption: "Current developers site",
+            carousel: true,
+            scroll: true,
+            src: [
+              "/work/developers-hub/current-1-solution-page.webp",
+              "/work/developers-hub/current-2-developers-home.webp",
+              "/work/developers-hub/current-3-solutions-center.webp",
+            ],
+            alts: [
+              "Full-page screenshot of a page on the current Snowflake developers site: the solution “Social graph of prominent tech figures using GraphRAG on RelationalAI”, with an overview, an architecture diagram and a row of hands-on resources",
+              "Full-page screenshot of the current “Snowflake for Developers” home page, with a get-started section, a searchable and filterable resource list, and a next steps section",
+              "Full-page screenshot of the current “Snowflake Solutions Center” page, with filters on the left and a grid of solution cards",
+            ],
+          },
+          { t: "h3", text: "Opportunities identified in discovery" },
+          { t: "list", items: ["Update the look and feel", "Make developer content easy to find", "Consolidate links and redesign how the information is displayed"] },
+          { t: "h3", text: "Competitive analysis" },
+          { t: "statement", text: "Developer sites have robust content for a technical audience" },
+          { t: "p", text: "I looked at developer experiences for SaaS companies in a similar category to Snowflake. I found examples of what the technical developer audience needs and expects — for example, a left-hand side menu like GitHub. This discovery work helped determine the best way to display the content for this user type." },
+          {
+            t: "media",
+            caption: "Competitor developer experiences",
+            carousel: true,
+            scroll: true,
+            src: [
+              "/work/developers-hub/competitor-1-confluent.webp",
+              "/work/developers-hub/competitor-2-docker-hub.webp",
+              "/work/developers-hub/competitor-3-hex.webp",
+            ],
+            alts: [
+              "Full-page screenshot of Confluent’s “Streaming Use Case Architectures” page, with search and filter menus above a grid of use case cards",
+              "Full-page screenshot of Docker Hub’s home page, with a category menu on the left and rows of featured and popular container images",
+              "Full-page screenshot of Hex’s Snowpark templates page, with a category list on the left, a featured template and a grid of template cards",
+            ],
+          },
+        ],
+      },
+      {
+        id: "ideation",
+        nav: "Ideation",
+        heading: "Ideation",
+        blocks: [
+          { t: "statement", text: "Reusable templates designed to scale" },
+          {
+            t: "media",
+            caption: "Wireframe templates",
+            carousel: true,
+            scroll: true,
+            src: [
+              "/work/developers-hub/template-1-individual-solution.webp",
+              "/work/developers-hub/template-2-solutions-center.webp",
+              "/work/developers-hub/template-3-solutions-category.webp",
+            ],
+            alts: [
+              "Full-page wireframe of the individual solution template: a headline, summary and a media area at the top, a sidebar with dates and features used, an overview, a highlights box, three titled sections and a resources and docs list",
+              "Full-page wireframe of the Solutions Center template: a page title, three featured solution cards, a filter sidebar and a grid of solution cards with pagination, followed by a continue learning section",
+              "Full-page wireframe of a solution category template: a page title, a back link to all solutions, a topic filter and a grid of five solution cards, followed by a continue learning section",
+            ],
+          },
+        ],
+      },
+      {
+        id: "testing",
+        nav: "Usability testing",
+        heading: "Usability testing & user research",
+        blocks: [
+          { t: "h3", text: "Adding Developers to the navigation" },
+          {
+            t: "media",
+            caption: "Developers added to Snowflake.com’s global navigation",
+            src: ["/work/developers-hub/navigation-developers-menu.jpg"],
+            alts: [
+              "Snowflake.com with the new Developers menu open in the global navigation, showing three columns: Build (Developers overview, Solutions center, Downloads), Learn (Documentation, Quickstarts, Open source, Hands-on labs, Builder education) and Connect (Engineering blog, Community), plus featured resources on the right",
+            ],
+          },
+          { t: "p", text: "User testing was performed with developers to determine their sentiment about adding “Developers” to the global header navigation. Testing probed on:" },
+          { t: "list", items: [
+            "What do developers expect to find in the navigation drop-down?",
+            "Are the labels intuitive?",
+            "Is anything missing from the menu?",
+            "What does this say to you about Snowflake as a company?",
+          ] },
+          { t: "p", text: "This research validated our assumption that the menu update is viewed positively by this audience — and signals to all users that Snowflake is developer-focused." },
+        ],
+      },
+      {
+        id: "prototype",
+        nav: "Final prototype",
+        heading: "Final design prototype",
+        blocks: [{ t: "figma", src: FIGMA_DEV_HUB, caption: "Final design prototype" }],
+      },
+      {
+        id: "results",
+        nav: "Results",
+        heading: "Results",
+        blocks: [
+          { t: "stats", items: [
+            { value: "94%", label: "Increase in page views per month" },
+            { value: "11.3%", label: "Decrease in bounce rate" },
+            { value: "5", label: "New templates designed for scale" },
+          ] },
         ],
       },
     ],
