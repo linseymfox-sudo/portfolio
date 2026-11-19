@@ -438,7 +438,7 @@ main { padding: 0 clamp(20px, 4vw, 56px); max-width: 1500px; margin: 0 auto; }
 }
 .cs-body > :first-child { margin-top: 0; }
 .cs-body > :is(.cs-p, .cs-h3, .cs-list, .cs-note, .cs-statement, .cs-numbered, .cs-callout) {
-  max-width: 720px;
+  max-width: 760px;
 }
 .cs-statement {
   margin: 40px 0 20px;
@@ -530,7 +530,7 @@ main { padding: 0 clamp(20px, 4vw, 56px); max-width: 1500px; margin: 0 auto; }
   --r: 1.778;
   position: relative;
   aspect-ratio: var(--r);
-  width: min(100%, calc(78vh * var(--r)), 1040px); /* fits the screen height, like the carousel */
+  width: min(100%, 1040px); /* same width as the images and carousels */
   overflow: hidden;
   border-radius: 14px;
   background: #000;
@@ -737,4 +737,33 @@ main { padding: 0 clamp(20px, 4vw, 56px); max-width: 1500px; margin: 0 auto; }
 .cs-top .sprig { opacity: 0.5; right: 0; }
 @media (max-width: 1100px) {
   .cs-top .sprig { opacity: 0.18; height: 260px; }
+}
+
+/* Wide screens: an editorial two-column layout. The section label sits in a
+   narrow left column (and stays in view while you scroll the section); the
+   text and images use the wider column beside it, so the page fills the
+   screen instead of hugging the left edge. */
+@media (min-width: 1000px) {
+  .cs-section {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    column-gap: clamp(40px, 5vw, 88px);
+    align-items: start;
+  }
+  .cs-section::before {
+    content: "";
+    grid-column: 1 / -1;
+    margin-bottom: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .jump + .cs-section::before { display: none; }
+  .cs-section > .cs-eyebrow {
+    position: sticky;
+    top: 24px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    line-height: 1.6;
+  }
+  .cs-section > .cs-body { min-width: 0; }
 }
