@@ -7,7 +7,6 @@ export default function Work() {
     <section id="work" className="work">
       <div className="work-head">
         <h2 className="eyebrow">Selected specimens</h2>
-        <span className="eyebrow">Case studies · 2014 — 2026</span>
       </div>
       <ul className="cards">
         {projects.map((p, i) => (
